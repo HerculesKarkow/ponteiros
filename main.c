@@ -15,10 +15,11 @@
 // criação da função que realiza a troca das posições
 void trocaPosicao(int *p1, int *p2)
 {
-	int aux = 0;
-	aux = *p1;
-	*p1 = *p2;
-	*p2 = aux;
+				
+	int aux = 0; // criação e inicialização de uma variável auxiliar
+	aux = *p1;   // variaável auxiliar recebe o conteudo do primeiro ponteiro
+	*p1 = *p2;	 // primeiro ponteiro recebe o conteudo do segundo ponteiro	
+	*p2 = aux;   // segundo ponteiro recebe o conteudo da variável auxiliar
 }
 
 main(void)
