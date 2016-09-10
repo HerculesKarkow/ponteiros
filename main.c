@@ -1,78 +1,56 @@
-//**************************************************************************************************
-// Programa exemplo de utilização de ponteiros
-//
-// Laboratório de Algoritmo II
-//
-// Autor: Hercules A. Karkow
-// Data: 02/09/2016
-//**************************************************************************************************
-
+//*************************************************************************************************
+//**                                  Autor: Jean Emílio Wilhelm                                 **
+//*************************************************************************************************
+//**    Função: Programa utilizado para iniciar os estudos com conceito básico em ponteiro       **
+//**                            Ponteiros com strings e typedef structs                          **
+//*************************************************************************************************
+//**                          Arquivo alterado em 09 de setembro de 2016                         **
+//**                     Aula de Laboratório de Algorítmos - Segundo Semestre                    **
+//*************************************************************************************************
+//*************************************************************************************************
 #include <stdio.h>
 #include <stdlib.h>
 
-/* run this program using the console pauser or add your own getch, system("pause") or input loop */
 
-// criação da função que realiza a troca das posições
-void trocaPosicao(int *p1, int *p2)
+//typedef = define um tipo de
+typedef struct 
 {
-				
-	int aux = 0; // criação e inicialização de uma variável auxiliar
-	aux = *p1;   // variaável auxiliar recebe o conteudo do primeiro ponteiro
-	*p1 = *p2;	 // primeiro ponteiro recebe o conteudo do segundo ponteiro	
-	*p2 = aux;   // segundo ponteiro recebe o conteudo da variável auxiliar
-}
+	int indice;
+	char nome[50];
+	char telefone[15];
+	char Endereco[50];
+	char Email[50];
+} entrada;
 
-main(void)
+int main()
 {
+	//criação e inicialização das variáveis e ponteiros
+	entrada pagina_01;
+	entrada *Ptr = &pagina_01;
 	
-	// criacao e inicializacao das variaveis
-	int variavel_1 = 1, variavel_2 = 2;	
-	char controle = 'n', descarga;
+	int n;
+	//pagina_01.indice = 1;
+	//pagina_01.nome = {"Jean Emilio Wilhelm"};
+	//pagina_01.telefone = {"(55) 9650-6141"};
 	
-	// criacao dos ponteiros
-	int *ponteiro_1, *ponteiro_2;
+	printf("\nInsira a entrada: ");
+	//scanf("%i", &pagina_01.indice);
+	scanf("%i", (*Ptr).indice);
+
 	
-	// enquanto
-	while(1)
-	{
-		// inicializacao dos ponteiros
-		ponteiro_1 = &variavel_1; // ponteiro_1 recebe o endereco de variavel_1
-		ponteiro_2 = &variavel_2; // ponteiro_2 recebe o endereco de variavel_2
-		
-		// exibe o valor contido em cada variavel a partir do endereco contido nos ponteiros
-		printf("\nVariavel_1 = %i", *ponteiro_1);
-		printf("\nVariavel_2 = %i", *ponteiro_2);
-		
-		//swap
-		
-		trocaPosicao(ponteiro_1, ponteiro_2);
-		
-		// exibe o valor contido em cada variavel a partir do endereço contido nos ponteiros
-		printf("\n Variavel1 depois do swap: %i", *ponteiro_1);
-		printf("\n Variavel2 depois do swap: %i", *ponteiro_2);
-		
-		// exibe a solicitacao de controle
-		printf("\n\nDeseja finalizar o programa? (s/n)");
-		
-		// efetua a leitura do comando
-		scanf("%c", &controle);
-		
-		// se o comando indicar a finalizacao, finaliza o loop
-		if(controle == 's') break;
-		
-		// exibe a solicitacao de um valor
-		printf("\nDigite um valor para a variavel_1 ");
-		
-		// efetua a leiturado valor e transfere o valor para a variavel_1
-		scanf("%i", ponteiro_1);
-		
-		// exibe a solicitacao de um valor
-		printf("\nDigite um valor para a variavel_2 ");
-		
-		// efetua a leitura do valor e transfere o valor para a variavel_2
-		scanf("%i%c", ponteiro_2, &descarga);
-		//scanf("%i", ponteiro_2, &descarga);
-	}
+	printf("\nInsira o Nome: ");	
+	scanf("%s", &pagina_01.nome);
+
+	
+	printf("\nInsira o Telefone: ");
+	scanf("%s", &pagina_01.telefone);
+	
+	
+	printf("\nEntrada: %i", pagina_01.indice);
+	printf("\nNome: %s", pagina_01.nome);
+	printf("\nTelefone: %s", pagina_01.telefone);
+	
+	
 	// retorna 0
 	return 0;
 }
